@@ -7,6 +7,8 @@ SOLO EL EDA
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Objetivo: Nos contrata una sociedad que quiere invertir en una tienda de aguacates en EEUU, para maximizar beneficios.
+
 1. Para los mayoristas un modelo de clasificacion que les diga donde es el lugar y tiempo, donde habrá una alta demanda
 2. ¿¿Tasa de desperdicio (diferencia entre produccion total - unidades vendidas)??
 3. Penetración de mercado = (Numero de consumidores de aguacate / Poblacion total) * 100ç
