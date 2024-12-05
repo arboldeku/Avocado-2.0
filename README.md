@@ -1,4 +1,4 @@
-# ViviendasBoston
+# Aguacate 2.0
 
 ![uoc_logo](https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logotipo_UOC.svg/480px-Logotipo_UOC.svg.png)
 
