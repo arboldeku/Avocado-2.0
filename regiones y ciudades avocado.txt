@@ -1,0 +1,13 @@
+cities = ['Albany', 'Atlanta', 'Boise', 'Boston', 'Charlotte', 'Chicago', 'Columbus', 
+          'Denver', 'Detroit', 'Grand Rapids', 'Houston', 'Indianapolis', 'Jacksonville', 
+          'Las Vegas', 'Los Angeles', 'Louisville', 'Nashville', 'New York', 'Orlando', 
+          'Philadelphia', 'Pittsburgh', 'Providence', 'Portland', 'Roanoke', 'Sacramento', 'San Diego', 
+          'San Francisco', 'Seattle', 'Spokane', 'St. Louis', 'Syracuse', 'Tampa', 'Toledo', 'Wichita']
+
+regions = ['Baltimore/Washington', 'Birmingham/Montgomery,' 'Buffalo/Rochester', 'Cincinnati/Dayton', 'Dallas/Ft. Worth', 
+           'Harrisburg/Scranton', 'Hartford/Springfield', 'Miami/Ft. Lauderdale', 
+           'New Orleans/Mobile', 'Northern New England', 'Peoria/Springfield', 'Phoenix/Tucson',
+           'Raleigh/Greensboro', 'Richmond/Norfolk', 'South Carolina', 'West Tex/New Mexico']
+
+greaterregions = ['California', 'Great Lakes', 'Midsouth', 'Northeast', 'Plains', 
+                  'South Central', 'Southeast', 'West']

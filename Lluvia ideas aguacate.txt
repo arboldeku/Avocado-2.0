@@ -1,0 +1,13 @@
+SOLO EL EDA
+
+1. Analisis univariado
+2. Analisis bivariado
+3. Matriz de correlacion
+4. Graficas de distribucion de categorias con mayor correlacion
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Para los mayoristas un modelo de clasificacion que les diga donde es el lugar y tiempo, donde habrá una alta demanda
+2. ¿¿Tasa de desperdicio (diferencia entre produccion total - unidades vendidas)??
+3. Penetración de mercado = (Numero de consumidores de aguacate / Poblacion total) * 100ç
+4. El objetivo de hacer scrapping a los suppliers es ver como impacta en: Precio, Cantidad (Total Volume), Por region, por cohorte semanal...
