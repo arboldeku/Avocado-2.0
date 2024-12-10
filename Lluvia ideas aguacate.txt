@@ -30,3 +30,7 @@ Re-enfoque para hacer más sencillo el problema a resolver:
 1. Modelo regresion lineal: MCO, Recta regresion lineal
 2. Hiperparametros con Ridge Y lasso
 3. Validacion cruzada para garantizar la robustez del modelo.
+
+Ecuacion: ASP Current Year(California) = B0 + Type(Ca) + 4046 Units(Ca) + 4225 Units(Ca) + 4770 Units(Ca) + TotalBaggedUnits(Ca) + Elasticidad_Precio_Demanda(Ca) +SupplierCalifornia 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
