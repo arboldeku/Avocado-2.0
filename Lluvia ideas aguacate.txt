@@ -24,3 +24,9 @@ Re-enfoque para hacer más sencillo el problema a resolver:
 3. Modelos de regresión regularizados para predecir dentro del consumo local de California --> Rellenar datos de tipo de aguacate del distribuidor.
 4. Para los modelos de clasificación (discriminatorios), como detectar entre aguacates convencionales u organicos dentro de rellenar tipos de aguacate del distribuidor.
 5. Hacer una comparativa con modelos nuestros de regresión, como los datos de los suppliers de 2025 se acercan a los datos encontrados por nosotros?
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+9 y 11 se mezclan para explicar el peso/ los pesos de la/s variable/s independiente/s sobre la/s dependiente/s, con el siguiente procedimiento:
+1. Modelo regresion lineal: MCO, Recta regresion lineal
+2. Hiperparametros con Ridge Y lasso
+3. Validacion cruzada para garantizar la robustez del modelo.
