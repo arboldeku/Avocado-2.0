@@ -48,3 +48,9 @@ REGRESION LOGISTICA
 Ecuacion: ASP Current Year(California) = B0 + Type(Ca) + 4046 Units(Ca) + 4225 Units(Ca) + 4770 Units(Ca) + TotalBaggedUnits(Ca) + Elasticidad_Precio_Demanda(Ca) +SupplierCalifornia 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+1. Primero un mes
+2. Segundo tres meses
+3. Luego un semestre, etc
+4- quitar los outliers del 2023 y poner una grafica de caja y de violin
+5. el objetivo es levantar la linea de interpolacion
+6- modelo polinomico en los convencionales
