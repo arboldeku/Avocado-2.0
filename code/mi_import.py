@@ -7,8 +7,10 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import statsmodels.api as sm
 from statsmodels.tsa.seasonal import seasonal_decompose
 from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
 from scipy import interpolate
 from scipy.stats import pearsonr
 from sklearn.model_selection import train_test_split
@@ -20,6 +22,10 @@ from sklearn.linear_model import ElasticNet
 from sklearn.linear_model import RidgeCV
 from sklearn.linear_model import LassoCV
 from sklearn.linear_model import ElasticNetCV
+from scipy.interpolate import interp1d
+from scipy.interpolate import interp2d
+from scipy.integrate import quad
+from scipy.integrate import solve_ivp
 
 
 # In[2]:
