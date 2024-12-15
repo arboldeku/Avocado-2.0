@@ -22,6 +22,8 @@ from sklearn.linear_model import ElasticNet
 from sklearn.linear_model import RidgeCV
 from sklearn.linear_model import LassoCV
 from sklearn.linear_model import ElasticNetCV
+from sklearn.model_selection import KFold
+from sklearn.metrics import mean_squared_error
 from scipy.interpolate import interp1d
 from scipy.interpolate import interp2d
 from scipy.integrate import quad
