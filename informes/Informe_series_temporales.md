@@ -4,7 +4,7 @@
 
 En este informe se discuten los hallazgos obtenidos para ver si estamos tratando con datos que tienen un componente de estacionalidad y con que fuerza estos influyen sobre el precio. Antes de empezar con el target de California, queremos destacar cómo se ha comportado el precio del Aguacate en EEUU y cómo viendolo a simple vista nos ha hecho sospechar que aquí hay una estacionalidad elevada.
 
-![precio aguacate totalUS](../graficos_imagenes/Estacionalidad%20TotalUS.png)
+![precio aguacate totalUS](../graficos_imagenes/precio%20aguacate%20totalUS.png)
 
 ### Análisis temporalidad en EEUU
 
