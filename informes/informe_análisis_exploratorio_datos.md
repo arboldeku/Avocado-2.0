@@ -6,33 +6,34 @@
 
 Resumen del Conjunto de Datos
 
-**Base de datos**: Venta de aguacates (2021 - noviembre de 2024) - Hass Avocado Board.  
+**Base de datos**: Venta de aguacates (2021 - 2024) - Hass Avocado Board.  
 **Número total de registros**: 24,536  
 **Columnas**: 13 (4 categóricas y 9 numéricas).  
 
 **Estructura del Conjunto de Datos**
 
-plaintext
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 24536 entries, 0 to 24535
-Data columns (total 13 columns):
- #   Column                     Non-Null Count  Dtype  
----  ------                     --------------  -----  
- 0   Geography                  24536 non-null  object 
- 1   Timeframe                  24536 non-null  object 
- 2   Current Year Week Ending   24536 non-null  object 
- 3   Type                       24536 non-null  object 
- 4   ASP Current Year           24536 non-null  float64
- 5   Total Bulk and Bags Units  24536 non-null  float64
- 6   4046 Units                 24536 non-null  float64
- 7   4225 Units                 24536 non-null  float64
- 8   4770 Units                 24536 non-null  float64
- 9   TotalBagged Units          24536 non-null  float64
- 10  SmlBagged Units            0 non-null      float64
- 11  LrgBagged Units            0 non-null      float64
- 12  X-LrgBagged Units          0 non-null      float64
-dtypes: float64(9), object(4)
-memory usage: 2.4+ MB
+**Tipo de objeto:** `pandas.core.frame.DataFrame`
+**Rango de índices:** 24536 entradas, de 0 a 24535
+**Columnas de datos (total 13 columnas):**
+
+| #  | Columna                    | Conteo de No Nulos | Tipo de Dato |
+|----|----------------------------|--------------------|--------------|
+| 0  | Geography                  | 24536 no nulos     | object       |
+| 1  | Timeframe                  | 24536 no nulos     | object       |
+| 2  | Current Year Week Ending   | 24536 no nulos     | object       |
+| 3  | Type                       | 24536 no nulos     | object       |
+| 4  | ASP Current Year           | 24536 no nulos     | float64      |
+| 5  | Total Bulk and Bags Units  | 24536 no nulos     | float64      |
+| 6  | 4046 Units                 | 24536 no nulos     | float64      |
+| 7  | 4225 Units                 | 24536 no nulos     | float64      |
+| 8  | 4770 Units                 | 24536 no nulos     | float64      |
+| 9  | TotalBagged Units          | 24536 no nulos     | float64      |
+| 10 | SmlBagged Units            | 0 no nulos         | float64      |
+| 11 | LrgBagged Units            | 0 no nulos         | float64      |
+| 12 | X-LrgBagged Units          | 0 no nulos         | float64      |
+
+**Tipos de datos:** float64(9), object(4)
+**Uso de memoria:** 2.4+ MB
 
 **Estadísticas Descriptivas**
 
@@ -64,19 +65,19 @@ Nota: Las columnas SmlBagged Units, LrgBagged Units y X-LrgBagged Units están c
 
 Hallazgos Clave
 1. Columna ASP Current Year (Precio promedio de aguacates por libra):
-   - Promedio: $1.34 por libra.
-   - Rango: desde $0.61 hasta $3.18.
-   - La variación sugiere fluctuaciones significativas en los precios según la geografía o temporada.
+	- Promedio: $1.34 por libra.
+	- Rango: desde $0.61 hasta $3.18.
+	- La variación sugiere fluctuaciones significativas en los precios según la geografía o temporada.
 2.	Volumen de ventas (Total Bulk and Bags Units):
-   - Promedio de 1,018,375 unidades vendidas semanalmente.
-   - Máximo alcanzado: 60,346,460 unidades en una sola semana.
+	- Promedio de 1,018,375 unidades vendidas semanalmente.
+	- Máximo alcanzado: 60,346,460 unidades en una sola semana.
 3.	Patrones en los tipos de aguacates:
-   - Las ventas están distribuidas entre tres tipos principales (4046, 4225, 4770).
-   - El tipo más vendido es 4046 con un promedio de 466,681 unidades por semana.
+	- Las ventas están distribuidas entre tres tipos principales (4046, 4225, 4770).
+	- El tipo más vendido es 4046 con un promedio de 466,681 unidades por semana.
 4.	Datos faltantes:
-   - Tres columnas (SmlBagged Units, LrgBagged Units, X-LrgBagged Units) están completamente vacías y pueden eliminarse del análisis.
+	- Tres columnas (SmlBagged Units, LrgBagged Units, X-LrgBagged Units) están completamente vacías y pueden eliminarse del análisis.
 5.	Geografía:
-   - Las ventas se registran en 59 regiones diferentes, lo que permite un análisis regional detallado.
+	- Las ventas se registran en 59 regiones diferentes, lo que permite un análisis regional detallado.
 
 ## **Análisis bivariado**
 

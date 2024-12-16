@@ -1,8 +1,4 @@
-# Aguacate 2.0
-
-![uoc_logo](https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logotipo_UOC.svg/480px-Logotipo_UOC.svg.png)
-
-# Proyecto Final - Análisis de Datos Avanzado
+# Análisis de Datos Avanzado
 **Objetivo**: Desarrollar un modelo predictivo para estimar el precio promedio del aguacate en el próximo año en una de las regiones con mayor demanda en Estados Unidos, con el fin de establecer estrategias para la apertura de una nueva sucursal en el mercado.
 
 **Integrantes**:
