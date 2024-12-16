@@ -43,9 +43,9 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import PolynomialFeatures
-
-
-
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
 # In[2]:
 
 
