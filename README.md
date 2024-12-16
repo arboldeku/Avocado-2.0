@@ -3,7 +3,30 @@
 ![uoc_logo](https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logotipo_UOC.svg/480px-Logotipo_UOC.svg.png)
 
 # Proyecto Final - Análisis de Datos Avanzado
+**Objetivo**: Desarrollar un modelo predictivo para estimar el precio promedio del aguacate en el próximo año en una de las regiones con mayor demanda en Estados Unidos, con el fin de establecer estrategias para la apertura de una nueva sucursal en el mercado.
 
+**Integrantes**:
+- Albert Bañeres Rovirosa
+- Cristian Largo Reina
+- Elvis Ortega Ochoa
+
+**Planificación:** [Github Projects](https://github.com/users/arboldeku/projects/1)
+
+## **Calidad de datos**
+
+### **Base de datos de venta de aguacates (2021 - Noviembre de 2024) - Hass Avocado Board**
+### **Base de datos de proveedores de aguacates (2022-2024) - Hass Avocado Board**
+### **Base de datos de ventas de aguacates y proveedor en California (2022-2024)**
+
+## **Exploración de datos**
+
+### **Análisis bivariado de la venta de aguacates en las grandes regiones y California**
+### **Análisis de elasticidad de la demananda considerando los días festivos del año**
+
+## **Modelo predictivo**
+
+
+<!-- 
 ## Introducción
 
 Este es el proyecto final para los estudiantes que participan en el curso. Los participantes podrán elegir, según su situación, entre las siguientes opciones:
@@ -81,4 +104,4 @@ La evaluación de los proyectos se basará en los siguientes criterios:
 - El **uso adecuado** de herramientas de gestión de proyectos (GitHub Projects).
 - La **innovación y aplicabilidad** de los insights generados, especialmente en términos de valor para la organización.
 
-**¡Esperamos tus valiosas contribuciones y te deseamos mucho éxito en el proyecto final!**
+**¡Esperamos tus valiosas contribuciones y te deseamos mucho éxito en el proyecto final!** -->
