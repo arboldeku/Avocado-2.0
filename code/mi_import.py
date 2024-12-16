@@ -7,6 +7,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 import statsmodels.api as sm
 from statsmodels.tsa.seasonal import seasonal_decompose
 from sklearn.metrics import mean_absolute_error, mean_squared_error
@@ -28,6 +29,21 @@ from scipy.interpolate import interp1d
 from scipy.interpolate import interp2d
 from scipy.integrate import quad
 from scipy.integrate import solve_ivp
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+from sklearn.linear_model import Ridge, Lasso
+from sklearn.model_selection import GridSearchCV
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import make_pipeline
+from sklearn.linear_model import Ridge
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.preprocessing import PolynomialFeatures
+
 
 
 # In[2]:
