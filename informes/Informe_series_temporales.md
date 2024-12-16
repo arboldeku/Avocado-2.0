@@ -30,7 +30,7 @@ El objetivo era utilizar interpolación para poder hallar datos faltantes de man
 
 ![Residuos interpolacion](../graficos_imagenes/Residuos%20interpolacion.png)
 
-![Resudios interpolacion convencional](../graficos_imagenes/Resudios%20interpolacion%20convencional.png)
+![Residuos interpolacion convencional](../graficos_imagenes/Residuos%20interpolacion%20convencional.png)
 
 Podemos ver aquí como se aprecia que el ruido es mucho mayor en los aguacates de tipo convencional que no en los de tipo orgánicos, ya que los residuos de la interpolación están más alejados de 0.
 
