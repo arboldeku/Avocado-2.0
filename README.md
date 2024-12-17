@@ -407,8 +407,7 @@ AUC para la clase medium (Convencionales): 0.5333333333333333
 Precisión del modelo: 95.24%
 
 Reporte de clasificación:
-
-                precision    recall  f1-score   support
+precision    recall  f1-score   support
 
 Conventional       0.95      0.95      0.95        42
      Organic       0.95      0.95      0.95        42
