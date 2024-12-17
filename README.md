@@ -406,15 +406,7 @@ AUC para la clase medium (Convencionales): 0.5333333333333333
 
 Precisión del modelo: 95.24%
 
-Reporte de clasificación:
-               precision    recall  f1-score   support
-
-Conventional       0.95      0.95      0.95        42
-     Organic       0.95      0.95      0.95        42
-
-    accuracy                           0.95        84
-   macro avg       0.95      0.95      0.95        84
-weighted avg       0.95      0.95      0.95        84
+![Matriz de Confusión](/graficos_imagenes/matriz%20confusion.PNG)
 
 La matriz de confusión nos da una precisión bastante elevada tanto de identificación de falsos positivos y falsos negativos, como de coeficiente de recall. 
 
