@@ -10,97 +10,316 @@
 
 ## **Calidad de datos**
 
+![alt text](imagenes/bases_datos_hass_avocado_board.png)
+
 ### **Base de datos de venta de aguacates (2021 - Noviembre de 2024) - Hass Avocado Board**
+
+![alt text](/imagenes/valores_perdidos_iniciales_para_avocado.png)
+
+Se observa que la base de datos de venta de aguacates contiene registros hasta la semana **1 de noviembre de 2024**. Para completar los datos faltantes del año, se llevaron a cabo los siguientes pasos:
+1.	Se filtró el cuarto trimestre de los años 2021, 2022 y 2023 de la base de datos.
+2.	Se calculó el promedio mensual de las columnas “ASP Current Year”, “Total Bulk and Bags Units”, “4046 Units”, “4225 Units”, “4770 Units” y “Total Bagged Units”, teniendo en cuenta la geografía y el tipo de aguacate.
+3.	Se creó una nueva base de datos llamada proyeccion_df, que contiene la proyección de los datos correspondientes a las 3 semanas restantes de noviembre y las 5 semanas de diciembre de 2024, utilizando los resultados del cálculo anterior. El **número de registros nuevos es 944**, que corresponden a 8 semanas por cada tipo de aguacate, 16 por cada geografía (16*59 = 944)
+4.	Finalmente, se combinó la base de datos de venta de aguacates con la proyección de 8 semanas.
+
+![alt text](/imagenes/valores_perdidos_finales_para_avocado.png)
+
+**Tipo de objeto:** `pandas.core.frame.DataFrame`
+
+**Rango de índices:** 24536 entradas, de 0 a 24535
+
+**Columnas de datos (total 13 columnas):**
+
+| #  | Columna                    | Conteo de No Nulos | Tipo de Dato    |
+|----|----------------------------|--------------------|-----------------|
+| 0  | Geography                  | 24536 no nulos     | object          |
+| 1  | Timeframe                  | 24536 no nulos     | object          |
+| 2  | Current Year Week Ending   | 24536 no nulos     | datetime64[ns]  |
+| 3  | Type                       | 24536 no nulos     | object          |
+| 4  | ASP Current Year           | 24536 no nulos     | float64         |
+| 5  | Total Bulk and Bags Units  | 24536 no nulos     | float64         |
+| 6  | 4046 Units                 | 24536 no nulos     | float64         |
+| 7  | 4225 Units                 | 24536 no nulos     | float64         |
+| 8  | 4770 Units                 | 24536 no nulos     | float64         |
+| 9  | TotalBagged Units          | 24536 no nulos     | float64         |
+| 10 | SmlBagged Units            | 0 no nulos         | float64         |
+| 11 | LrgBagged Units            | 0 no nulos         | float64         |
+| 12 | X-LrgBagged Units          | 0 no nulos         | float64         |
+
+**Tipos de datos:** datetime64[ns](1), float64(9), object(3)
+
+**Uso de memoria:** 2.4+ MB
+
 ### **Base de datos de proveedores de aguacates (2022-2024) - Hass Avocado Board**
+
+![alt text](/imagenes/valores_perdidos_iniciales_para_suppliers.png)
+
+**Tipo de objeto:** `pandas.core.frame.DataFrame`
+
+**Rango de índices:** 208 entradas, de 0 a 207
+
+**Columnas de datos (total 10 columnas):**
+
+| #  | Columna              | Conteo de No Nulos | Tipo de Dato |
+|----|----------------------|--------------------|--------------|
+| 0  | Week Ending          | 208 no nulos       | object       |
+| 1  | Year                 | 208 no nulos       | int64        |
+| 2  | Status               | 208 no nulos       | object       |
+| 3  | Total Volume         | 208 no nulos       | object       |
+| 4  | California           | 208 no nulos       | object       |
+| 5  | Chile                | 208 no nulos       | object       |
+| 6  | Mexico               | 182 no nulos       | object       |
+| 7  | Peru                 | 208 no nulos       | object       |
+| 8  | Colombia             | 208 no nulos       | object       |
+| 9  | Dominican Republic   | 156 no nulos       | object       |
+
+**Tipos de datos:** int64(1), object(9)
+
+**Uso de memoria:** 16.4+ KB
+
+**Distribucción de la geografía de acuerdo a ciudades, regiones y grandes regiones**
+
+| Ciudades (34)                         | Regiones (16)                        | Grandes regiones (8) |
+|---------------------------------|--------------------------------|-----------------|
+| Albany                          | Baltimore/Washington           | **California**      |
+| Atlanta                         | Birmingham/Montgomery          | Great Lakes     |
+| Boise                           | Buffalo/Rochester              | Midsouth        |
+| Boston                          | Cincinnati/Dayton              | Northeast       |
+| Charlotte                       | Dallas/Ft. Worth               | Plains          |
+| Chicago                         | Harrisburg/Scranton            | South Central   |
+| Columbus                        | Hartford/Springfield           | Southeast       |
+| Denver                          | Miami/Ft. Lauderdale           | West            |
+| Detroit                         | New Orleans/Mobile             |                 |
+| Grand Rapids                    | Northern New England           |                 |
+| Houston                         | Peoria/Springfield             |                 |
+| Indianapolis                    | Phoenix/Tucson                 |                 |
+| Jacksonville                    | Raleigh/Greensboro             |                 |
+| Las Vegas                       | Richmond/Norfolk               |                 |
+| Los Angeles                     | South Carolina                 |                 |
+| Louisville                      | West Tex/New Mexico            |                 |
+| Nashville                       |                                |                 |
+| New York                        |                                |                 |
+| Orlando                         |                                |                 |
+| Philadelphia                    |                                |                 |
+| Pittsburgh                      |                                |                 |
+| Providence                      |                                |                 |
+| Portland                        |                                |                 |
+| Roanoke                         |                                |                 |
+| Sacramento                      |                                |                 |
+| San Diego                       |                                |                 |
+| San Francisco                   |                                |                 |
+| Seattle                         |                                |                 |
+| Spokane                         |                                |                 |
+| St. Louis                       |                                |                 |
+| Syracuse                        |                                |                 |
+| Tampa                           |                                |                 |
+| Toledo                          |                                |                 |
+| Wichita                         |                                |                 |
+
 ### **Base de datos de ventas de aguacates y proveedor en California (2022-2024)**
+
+Reglas para mezclar la base de datos de venta de aguacates y proveedor en California:
+Se agrupo por "Current Year Week Ending".
+- "Geografía" y "Timeframe" tienen el mismo valor.
+- "Tipo": Orgánico y Convencional
+- "Precio medio de venta": media del precio del aguacate convencional y orgánico
+- "Unidades totales a granel y sacos (lbs)": suma del volumen de aguacates convencional y orgánico
+- "Unidades 4046 (pequeños)": suma del volumen de aguacates convencional y orgánico
+- "Unidades 4225 (medianos)": suma del volumen de aguacates convencional y orgánico
+- "Unidades 4770 (grandes)": suma del volumen de aguacates convencional y orgánico
+- "Total de unidades embolsadas": suma del volumen de aguacates convencional y orgánico
+- "Elasticidad": media de la elasticidad de la demanda de aguacates convencional y orgánico
+
+**Dilema de libras y unidades**
+Teniendo en cuenta que los datos en la base de datos de proveedores están expresados en **unidades**, mientras que la base de datos de ventas utiliza **libras**, se realizó la conversión de las columnas “4046 Units”, “4225 Units”, “4770 Units” y “TotalBagged Units” a unidades. Esta conversión se llevó a cabo utilizando el volumen promedio correspondiente a cada tipo de aguacate:
+- 1 aguacate 4046 = 0.19 lbs
+- 1 aguacate 4225 = 0.50 lbs
+- 1 aguacate 4770 = 0.63 lbs
+- Volumen promedio de un aguacate de “TotalBagged Units” = 0.5 lbs
+
+Los resultados de esta transformación fueron almacenados en las columnas: “Unidades pequeñas”, “Unidades medianas”, “Unidades grandes” y “Unidades de aguacates en bolsas”. Posteriormente, la suma de estas columnas fue calculada y registrada en “Total Unidades en Granel y Bolsas”, que representa la métrica equivalente a “Total Bulk and Bags Units” en libras.
+
+![alt text](/imagenes/valores_perdidos_finales_para_california_project.png)
+
+**Tipo de objeto:** `pandas.core.frame.DataFrame`
+
+**Rango de índices:** 156 entradas, de 0 a 155
+
+**Columnas de datos (total 17 columnas):**
+
+| #  | Columna                           | Conteo de No Nulos | Tipo de Dato |
+|----|-----------------------------------|--------------------|--------------|
+| 0  | Current Year Week Ending          | 156 no nulos       | object       |
+| 1  | Geography                         | 156 no nulos       | object       |
+| 2  | Timeframe                         | 156 no nulos       | object       |
+| 3  | Type                              | 156 no nulos       | object       |
+| 4  | ASP Current Year                  | 156 no nulos       | float64      |
+| 5  | Total Bulk and Bags Units         | 156 no nulos       | float64      |
+| 6  | 4046 Units                        | 156 no nulos       | float64      |
+| 7  | 4225 Units                        | 156 no nulos       | float64      |
+| 8  | 4770 Units                        | 156 no nulos       | float64      |
+| 9  | TotalBagged Units                 | 156 no nulos       | float64      |
+| 10 | Elasticity                        | 156 no nulos       | float64      |
+| 11 | California Supplier               | 156 no nulos       | object       |
+| 12 | Unidades pequeñas                 | 156 no nulos       | float64      |
+| 13 | Unidades medianas                 | 156 no nulos       | float64      |
+| 14 | Unidades grandes                  | 156 no nulos       | float64      |
+| 15 | Unidades Aguacates en Bolsas      | 156 no nulos       | float64      |
+| 16 | Total Unidades en Granel y Bolsas | 156 no nulos       | float64      |
+
+**Tipos de datos:** float64(12), object(5)
+
+**Uso de memoria:** 20.8+ KB
 
 ## **Exploración de datos**
 
 ### **Análisis bivariado de la venta de aguacates en las grandes regiones y California**
+
+**Media del total de unidades a granel y en sacos (lbs) por Grandes regiones**
+
+![alt text](/imagenes/media_total_lbs_grandes_regiones.png)
+
+La gráfica de barras muestra la media del total de unidades a granel y en sacos (en libras) en diferentes grandes regiones. Las principales observaciones son:
+1. La región Oeste tiene la media más alta, superando los 3.5 millones de libras, seguida de cerca por California y Sureste.
+2.	La región de Plains presenta la media más baja, con poco más de 1 millón de libras, muy por debajo del resto de las regiones.
+3.	Regiones como Noreste, Grandes Lagos y Midsouth muestran medias moderadas, cercanas a los 2.5 millones de libras.
+4.	La región Centro Sur también destaca con un total relativamente alto, cercano a los 3 millones de libras.
+
+Esto sugiere que las ventas de aguacates (medidas en unidades a granel y en sacos) son particularmente fuertes en las regiones Oeste, Sureste y California, mientras que la región de Plains muestra un rezago significativo. En este análisis se debe tener en cuenta el **tamaño del mercado** en cada una de las grandes regiones.
+
+**Grandes regiones: Media del total de unidades a granel y en sacos (lbs) por Trimestre**
+
+![alt text](/imagenes/media_total_lbs_trimestre_grandes_regiones.png)
+
+La gráfica muestra la evolución trimestral de la media del total de unidades a granel y en sacos (en libras). Las principales observaciones son:
+1.	2021 inicia con valores altos cercanos a los 3.2 millones de libras, pero presenta una caída constante a lo largo del año.
+2.	A principios de 2022, se observa un mínimo alrededor de 2.4 millones de libras, seguido de un repunte temporal, aunque termina nuevamente en valores bajos.
+3.	En 2023, hay un notable aumento significativo, alcanzando niveles por encima de los 3 millones de libras, seguido de una caída en los trimestres posteriores.
+4.	El 2024 muestra un comportamiento volátil, con un máximo superior a los 3.2 millones de libras, seguido de una caída y un ligero repunte al final.
+
+En general, la evolución por trimestre revela una tendencia cíclica con fuertes fluctuaciones, donde se alternan períodos de altas y bajas que sugieren **estacionalidad** o **factores externos** que afectan las ventas de unidades a granel y en sacos.
+
+**Grandes regiones: Media del total de unidades a granel y en sacos (lbs) vendidos por Mes en California (2022)**
+
+![alt text](/imagenes/media_total_lbs_mes_california_2022.png)
+
+La gráfica muestra la media del total de unidades a granel y en sacos (en libras) vendidas por mes en California durante el 2022, diferenciando entre aguacates orgánicos y convencionales. Las observaciones clave son las siguientes:
+1. Tendencia de Orgánico (línea verde):
+    - Al inicio del año (enero y febrero), las ventas de aguacates orgánicos se mantienen altas, cerca de las 380,000 libras.
+   - A partir de marzo, las ventas presentan una tendencia a la baja con fluctuaciones, alcanzando su mínimo en agosto con aproximadamente 300,000 libras.
+   - En septiembre, hay un repunte significativo, pero cae nuevamente en octubre y noviembre, con una ligera recuperación en diciembre.
+2.	Tendencia de Convencional (línea marrón):
+   - Las ventas de aguacates convencionales comienzan en niveles altos en enero y febrero (alrededor de 6.6 millones de libras).
+   - En marzo, se observa una fuerte caída, manteniéndose relativamente estables con pequeñas variaciones durante el resto del año.
+   - El mes con mayor recuperación es septiembre, pero la tendencia general es descendente hacia finales del año.
+3.	Comparación entre Orgánico y Convencional:
+   - Los aguacates convencionales mantienen volúmenes de ventas significativamente superiores a los orgánicos a lo largo del año.
+   - Sin embargo, las ventas de orgánicos muestran mayor volatilidad, con picos y caídas más marcados.
+
+En resumen, las ventas de **aguacates convencionales son más constantes y dominan en volumen total**, mientras que las ventas de **aguacates orgánicos son más fluctuantes y presentan periodos de recuperación y caídas abruptas**.
+
+**Grandes regiones: Media del precio medio de venta año en curso por Trimestre**
+
+![alt text](/imagenes/media_precio_medio_trimestre_grandes_regiones.png)
+
+La gráfica muestra la media del precio medio de venta por trimestre a lo largo de los años 2021 a 2024 en grandes regiones. Las principales observaciones son las siguientes:
+1. Tendencia ascendente en 2021 y 2022:
+   - El precio medio de venta comienza en niveles bajos en 2021 (alrededor de 1.1) y experimenta un incremento constante hasta alcanzar su pico máximo en el primer trimestre de 2022, con un valor superior a 1.6.
+   - Este periodo representa el máximo precio medio en toda la serie temporal.
+2. Caída pronunciada en 2022 y 2023:
+   - Después del pico en el primer trimestre de 2022, se observa una caída drástica a lo largo del resto del año, continuando en 2023, donde los precios alcanzan su punto más bajo en el primer trimestre, cercano a 1.1.
+   - Este periodo muestra la mayor disminución en el precio medio de venta.
+3. Recuperación parcial en 2023 y 2024:
+   - A partir del segundo trimestre de 2023, se observa una ligera recuperación en los precios, con fluctuaciones a lo largo del año.
+   - Para el 2024, los precios muestran un crecimiento significativo hasta el tercer trimestre, alcanzando valores cercanos a 1.45, aunque con una leve caída al final del año.
+
+Resumen:
+- El precio medio de venta muestra un aumento considerable entre 2021 y 2022, seguido de una fuerte caída en 2023.
+- En 2024, se presenta una recuperación gradual, pero sin alcanzar los niveles máximos observados en 2022.
+- Esta evolución sugiere una **volatilidad en los precios con períodos de crecimiento y contracción**, posiblemente influenciados por factores económicos o de oferta y demanda.
+
+**Media del precio medio de venta año en curso por Mes en California (2022)**
+
+![alt text](/imagenes/media_precio_mes_california_2022.png)
+
+La gráfica muestra la media del precio medio de venta por mes en California durante el año 2022, diferenciando entre aguacates orgánicos (línea verde) y convencionales (línea marrón). Las principales observaciones son:
+
+Aguacates orgánicos:
+1. Los precios comienzan en enero con un valor cercano a 1.80 y muestran una tendencia al alza hasta alcanzar su pico máximo en julio, con un valor superior a 2.15.
+2.	A partir de agosto, los precios comienzan a disminuir progresivamente, cerrando el año en diciembre con un valor aproximado de 1.70.
+3.	Los precios orgánicos se mantienen significativamente más altos que los convencionales durante todo el año.
+
+Aguacates convencionales:
+1.	Los precios inician en enero en un nivel mucho más bajo, alrededor de 1.30, y muestran una tendencia ascendente hasta alcanzar un pico en junio con un valor de aproximadamente 1.65.
+2.	A partir de julio, los precios comienzan a descender de forma constante, cerrando el año en diciembre con un valor cercano a 1.25.
+
+Comparación:
+- Los aguacates orgánicos tienen un precio medio superior en comparación con los aguacates convencionales durante todo el año.
+- La diferencia entre ambos tipos se mantiene constante, aunque se amplía ligeramente hacia la segunda mitad del año, especialmente cuando los precios convencionales caen más bruscamente.
+- El comportamiento de ambos tipos de aguacates es similar: un aumento en la primera mitad del año, seguido de una caída en la segunda mitad.
+
+Resumen:
+
+El mercado de aguacates en 2022 muestra que los **aguacates orgánicos tienen un mayor precio medio y son más estables** en comparación con los convencionales, los cuales tienen precios más bajos y muestran una mayor volatilidad hacia finales del año.
+
 ### **Análisis de elasticidad de la demananda considerando los días festivos del año**
 
+El siguiente análisis toma en cuenta los principales **días festivos** que ocurren a lo largo del año en el período 2021-2024, con el fin de evaluar la elasticidad de la demanda en relación con estos eventos clave.
+
+| **Festivo**              | **Fecha**                                     | **2021**       | **2022**       | **2023**       | **2024**       |
+|--------------------------|----------------------------------------------|----------------|----------------|----------------|----------------|
+| **Super Bowl**         | Varía (Generalmente el primer domingo de febrero) | 07/02/2021     | 13/02/2022     | 12/02/2023     | 11/02/2024     |
+| **Día de San Valentín**  | 14 de febrero                                |                |                |                |                |
+| **Día de San Patricio**  | 17 de marzo                                  |                |                |                |                |
+| **Pascua**               | Varía (Entre el 22 de marzo y el 25 de abril - domingo) | 04/04/2021     | 17/04/2022     | 09/04/2023     | 31/03/2024     |
+| **Cinco de Mayo**        | 5 de mayo                                    |                |                |                |                |
+| **Día de los Caídos**    | Último lunes de mayo                         | 31/05/2021     | 30/05/2022     | 29/05/2023     | 27/05/2024     |
+| **Día del Padre**        | Tercer domingo de junio                      | 20/06/2021     | 19/06/2022     | 18/06/2023     | 16/06/2024     |
+| **Día de la Independencia** | 4 de julio                                 |                |                |                |                |
+| **Día del Trabajo**      | Primer lunes de septiembre                   | 06/09/2021     | 05/09/2022     | 04/09/2023     | 02/09/2024     |
+| **Halloween**            | 31 de octubre                                |                |                |                |                |
+| **Día de Acción de Gracias** | Cuarto jueves de noviembre               | 25/11/2021     | 24/11/2022     | 23/11/2023     | 28/11/2024     |
+| **Navidad**              | 25 de diciembre                              |                |                |                |                |
+| **Nochevieja**           | 31 de diciembre                              |                |                |                |                |
+
+---
+
+Este análisis permite identificar los posibles efectos estacionales en la elasticidad de la demanda, correlacionando los días festivos con las variaciones en el comportamiento de los consumidores. A continuación se presenta algunos análisis de la elasticidad por año considerando los días festivos.
+
+**Elasticidad de la demanda respecto al precio por semana para aguacates en California (2022)**
+
+![alt text](/imagenes/elasticidad_demanda_semana_california_2022.png)
+
+La gráfica muestra la elasticidad de la demanda respecto al precio de aguacates orgánicos (línea verde) y convencionales (línea marrón) por semana en California durante el 2022, considerando las fechas festivas.
+
+Observaciones clave:
+- Los aguacates convencionales presentan picos extremos negativos alrededor de Pascua y fluctuaciones menores en otras fechas, lo que sugiere una alta sensibilidad de la demanda en esa semana.
+- Los aguacates orgánicos muestran un comportamiento más estable, con una ligera elasticidad positiva en ciertas semanas como Cinco de Mayo.
+- Las variaciones son más pronunciadas para los aguacates convencionales, reflejando una demanda más volátil frente a cambios en el precio en comparación con los orgánicos.
+
+En resumen, **la elasticidad de los convencionales es más sensible y volátil en fechas clave como Pascua**, mientras que **los orgánicos mantienen una elasticidad más controlada**.
+
+**Elasticidad de la demanda respecto al precio por semana para aguacates en California (2023)**
+
+![alt text](/imagenes/elasticidad_demanda_semana_california_2023.png)
+
+La gráfica muestra la elasticidad de la demanda respecto al precio para aguacates (tanto orgánicos como convencionales) en California durante 2023, representada por semanas.
+
+Observaciones clave:
+1. Picos de Elasticidad:
+    - Se observan grandes picos positivos en la elasticidad durante ciertas semanas (por ejemplo, Día de la Independencia y Acción de Gracias), especialmente en los aguacates orgánicos. Esto indica una alta sensibilidad a cambios en los precios durante festivos o eventos especiales.
+    - Los aguacates convencionales también muestran picos, pero son más pequeños y menos frecuentes en comparación con los orgánicos.
+2. Elasticidad Negativa:
+    - Existen períodos de elasticidad negativa, principalmente para los aguacates orgánicos (por ejemplo, cerca del Cinco de Mayo y Acción de Gracias), lo que sugiere que la demanda disminuyó a pesar de que los precios bajaron.
+3. Tendencia General:
+    - Los aguacates orgánicos muestran una mayor volatilidad en su elasticidad a lo largo del año, lo que refleja una mayor sensibilidad de los consumidores a los cambios de precio.
+    - Los aguacates convencionales muestran una elasticidad más estable, con variaciones menores durante las semanas.
+
+Interpretación:
+
+La demanda de **aguacates orgánicos es más elástica**, especialmente durante festivos y eventos importantes, lo que sugiere que **los consumidores son más sensibles a los cambios de precio en esos períodos**. En contraste, **los aguacates convencionales tienen una demanda más estable y menos afectada por las fluctuaciones de precio**.
+
 ## **Modelo predictivo**
-
-
-<!-- 
-## Introducción
-
-Este es el proyecto final para los estudiantes que participan en el curso. Los participantes podrán elegir, según su situación, entre las siguientes opciones:
-
-1. **Opción 1**: Los estudiantes que participaron en el "proyecto-2-cohortes-avanzados" pueden:
-   - Continuar y ampliar el **"proyecto-1-regresion"**.
-   - Continuar y ampliar el **"proyecto-2-cohortes-avanzados"**.
-   - Presentar un **proyecto nuevo**, que involucre como mínimo las bases de los proyectos 1 y 2.
-   - Trabajar en grupos de **1 a 3 personas**.
-
-2. **Opción 2**: Los estudiantes que **no participaron en el proyecto 2** (proyecto-2-cohortes-avanzados) solo pueden presentar un **proyecto nuevo** que involucre como mínimo las bases de los proyectos 1 y 2. Este nuevo proyecto **no debe involucrar los datos de los proyectos 1 y 2**.
-   - Trabajar en grupos de **1 a 2 personas**.
-
-## Requisitos obligatorios para todos los proyectos finales
-
-Todos los proyectos finales deben cumplir con los siguientes requisitos mínimos:
-
-1. **Análisis de Series de Tiempo**: Realizar un análisis exhaustivo de las tendencias y patrones temporales presentes en los datos.
-2. **Análisis Exploratorio de Datos (EDA)**: Identificar patrones, anomalías y relaciones entre las variables mediante visualizaciones y estadísticas descriptivas.
-3. **Análisis de Calidad de los Datos**: Evaluar la calidad de los datos, identificando problemas como valores faltantes, inconsistencias, errores o duplicados.
-4. **Análisis Gráfico de los Datos**: Representar gráficamente las variables mediante gráficos como histogramas, diagramas de dispersión, boxplots, entre otros, para facilitar la comprensión visual de los datos.
-5. **Segmentación Inteligente de los Datos**: Implementar técnicas de segmentación avanzadas que aporten valor al análisis y la extracción de insights relevantes.
-6. **Análisis de Correlación**: Evaluar las relaciones y asociaciones entre las variables mediante matrices de correlación y análisis de dependencias.
-7. **Análisis de Outliers**: Detectar y tratar los valores atípicos (outliers) presentes en los datos para mejorar la precisión de los modelos.
-8. **Análisis de Cohortes Avanzados**: Realizar segmentación y análisis del comportamiento de los usuarios a lo largo del tiempo, con el objetivo de identificar patrones de retención, uso y otros comportamientos clave.
-9. **Modelos de Regresión Regularizados**: Implementar modelos de regresión regularizados (como Ridge, Lasso, ElasticNet), utilizando técnicas de búsqueda de hiperparámetros para optimizar el rendimiento del modelo.
-10. **Modelos de Clasificación**: Desarrollar y optimizar modelos de clasificación (como árboles de decisión, SVM, k-NN), utilizando los métodos adecuados de validación y evaluación.
-11. **Validación de Modelos**: Seleccionar los mejores modelos mediante validación cruzada con k-fold, para asegurar la robustez y generalización de los modelos creados.
-12. **Uso de Scraping para Variables Exógenas**: El proyecto debe incluir el uso de técnicas de web scraping para obtener variables adicionales de fuentes externas que aporten valor a los datos originales del proyecto.
-
-## Gestión del Proyecto
-
-La gestión del proyecto es obligatoria y se llevará a cabo a través de **GitHub Projects**. No se aceptarán excepciones. Debes utilizar la plataforma para organizar las tareas, hacer un seguimiento de los avances y colaborar con tu equipo de manera eficiente.
-
-- **Crear un Proyecto en GitHub Projects**: Asegúrate de organizar las tareas y entregables de manera clara y ordenada.
-  - Referencia: [Cómo crear un proyecto en GitHub](https://docs.github.com/es/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)
-
-## Entregables del Proyecto Final
-
-1. **Código en Python**:
-   - El código debe estar bien documentado, organizado y estructurado.
-   - Debe incluir el preprocesamiento de los datos, implementación de modelos, análisis requeridos y visualizaciones.
-   - El código debe ser comprensible y eficiente.
-
-2. **Informe del Análisis Exploratorio de Datos (EDA)**:
-   - Un informe en formato markdown que resuma los hallazgos clave del análisis exploratorio.
-   - Incluir visualizaciones de los patrones encontrados y explicaciones claras sobre las conclusiones obtenidas.
-
-3. **Informe de Calidad de los Datos**:
-   - Un informe detallado sobre la calidad de los datos, incluyendo los problemas identificados y las acciones tomadas para mejorarlos (tratamiento de valores faltantes, inconsistencias, etc.).
-
-4. **Modelos Predictivos**:
-   - Los modelos de regresión regularizados y clasificación deben estar bien optimizados.
-   - Incluir la búsqueda de hiperparámetros para obtener el mejor rendimiento.
-   - Presentar los resultados de la validación cruzada (k-fold) y realizar un análisis de los residuos.
-
-5. **Presentación Ejecutiva**:
-   - Un informe conciso que resuma los hallazgos clave, análisis realizados, y los modelos implementados.
-   - Este resumen debe estar incluido en el archivo `README.md` del repositorio de GitHub y será la única parte utilizada durante las exposiciones para defender el proyecto.
-
-6. **Repositorio en GitHub**:
-   - El código debe ser subido a un repositorio en GitHub.
-   - El repositorio debe contener el archivo `README.md` con una descripción clara y precisa del proyecto.
-   - El repositorio debe estar estructurado de manera que facilite la revisión y comprensión del trabajo.
-   - Asegúrate de documentar adecuadamente el proyecto, utilizando **commits** frecuentes y significativos.
-
-## Evaluación
-
-La evaluación de los proyectos se basará en los siguientes criterios:
-
-- La **calidad y claridad** del código.
-- La **profundidad y coherencia** del análisis realizado.
-- La **correcta interpretación** de los resultados obtenidos.
-- La **calidad y precisión** del informe `README.md` en el repositorio de GitHub.
-- El **uso adecuado** de herramientas de gestión de proyectos (GitHub Projects).
-- La **innovación y aplicabilidad** de los insights generados, especialmente en términos de valor para la organización.
-
-**¡Esperamos tus valiosas contribuciones y te deseamos mucho éxito en el proyecto final!** -->
 
 ### Análisis Univariado
 
@@ -456,4 +675,84 @@ Valor p: 0.05043128970952864
 
 4. La FAS i la FAP, nos devuelven que claramente se evidencia una tendencia estacional, ya que los rezagos que hay con las temporalidades del periodo t, vienen correlacionadas desde varios periodos atrás.
 
+
+<!-- 
+## Introducción
+
+Este es el proyecto final para los estudiantes que participan en el curso. Los participantes podrán elegir, según su situación, entre las siguientes opciones:
+
+1. **Opción 1**: Los estudiantes que participaron en el "proyecto-2-cohortes-avanzados" pueden:
+   - Continuar y ampliar el **"proyecto-1-regresion"**.
+   - Continuar y ampliar el **"proyecto-2-cohortes-avanzados"**.
+   - Presentar un **proyecto nuevo**, que involucre como mínimo las bases de los proyectos 1 y 2.
+   - Trabajar en grupos de **1 a 3 personas**.
+
+2. **Opción 2**: Los estudiantes que **no participaron en el proyecto 2** (proyecto-2-cohortes-avanzados) solo pueden presentar un **proyecto nuevo** que involucre como mínimo las bases de los proyectos 1 y 2. Este nuevo proyecto **no debe involucrar los datos de los proyectos 1 y 2**.
+   - Trabajar en grupos de **1 a 2 personas**.
+
+## Requisitos obligatorios para todos los proyectos finales
+
+Todos los proyectos finales deben cumplir con los siguientes requisitos mínimos:
+
+1. **Análisis de Series de Tiempo**: Realizar un análisis exhaustivo de las tendencias y patrones temporales presentes en los datos.
+2. **Análisis Exploratorio de Datos (EDA)**: Identificar patrones, anomalías y relaciones entre las variables mediante visualizaciones y estadísticas descriptivas.
+3. **Análisis de Calidad de los Datos**: Evaluar la calidad de los datos, identificando problemas como valores faltantes, inconsistencias, errores o duplicados.
+4. **Análisis Gráfico de los Datos**: Representar gráficamente las variables mediante gráficos como histogramas, diagramas de dispersión, boxplots, entre otros, para facilitar la comprensión visual de los datos.
+5. **Segmentación Inteligente de los Datos**: Implementar técnicas de segmentación avanzadas que aporten valor al análisis y la extracción de insights relevantes.
+6. **Análisis de Correlación**: Evaluar las relaciones y asociaciones entre las variables mediante matrices de correlación y análisis de dependencias.
+7. **Análisis de Outliers**: Detectar y tratar los valores atípicos (outliers) presentes en los datos para mejorar la precisión de los modelos.
+8. **Análisis de Cohortes Avanzados**: Realizar segmentación y análisis del comportamiento de los usuarios a lo largo del tiempo, con el objetivo de identificar patrones de retención, uso y otros comportamientos clave.
+9. **Modelos de Regresión Regularizados**: Implementar modelos de regresión regularizados (como Ridge, Lasso, ElasticNet), utilizando técnicas de búsqueda de hiperparámetros para optimizar el rendimiento del modelo.
+10. **Modelos de Clasificación**: Desarrollar y optimizar modelos de clasificación (como árboles de decisión, SVM, k-NN), utilizando los métodos adecuados de validación y evaluación.
+11. **Validación de Modelos**: Seleccionar los mejores modelos mediante validación cruzada con k-fold, para asegurar la robustez y generalización de los modelos creados.
+12. **Uso de Scraping para Variables Exógenas**: El proyecto debe incluir el uso de técnicas de web scraping para obtener variables adicionales de fuentes externas que aporten valor a los datos originales del proyecto.
+
+## Gestión del Proyecto
+
+La gestión del proyecto es obligatoria y se llevará a cabo a través de **GitHub Projects**. No se aceptarán excepciones. Debes utilizar la plataforma para organizar las tareas, hacer un seguimiento de los avances y colaborar con tu equipo de manera eficiente.
+
+- **Crear un Proyecto en GitHub Projects**: Asegúrate de organizar las tareas y entregables de manera clara y ordenada.
+  - Referencia: [Cómo crear un proyecto en GitHub](https://docs.github.com/es/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)
+
+## Entregables del Proyecto Final
+
+1. **Código en Python**:
+   - El código debe estar bien documentado, organizado y estructurado.
+   - Debe incluir el preprocesamiento de los datos, implementación de modelos, análisis requeridos y visualizaciones.
+   - El código debe ser comprensible y eficiente.
+
+2. **Informe del Análisis Exploratorio de Datos (EDA)**:
+   - Un informe en formato markdown que resuma los hallazgos clave del análisis exploratorio.
+   - Incluir visualizaciones de los patrones encontrados y explicaciones claras sobre las conclusiones obtenidas.
+
+3. **Informe de Calidad de los Datos**:
+   - Un informe detallado sobre la calidad de los datos, incluyendo los problemas identificados y las acciones tomadas para mejorarlos (tratamiento de valores faltantes, inconsistencias, etc.).
+
+4. **Modelos Predictivos**:
+   - Los modelos de regresión regularizados y clasificación deben estar bien optimizados.
+   - Incluir la búsqueda de hiperparámetros para obtener el mejor rendimiento.
+   - Presentar los resultados de la validación cruzada (k-fold) y realizar un análisis de los residuos.
+
+5. **Presentación Ejecutiva**:
+   - Un informe conciso que resuma los hallazgos clave, análisis realizados, y los modelos implementados.
+   - Este resumen debe estar incluido en el archivo `README.md` del repositorio de GitHub y será la única parte utilizada durante las exposiciones para defender el proyecto.
+
+6. **Repositorio en GitHub**:
+   - El código debe ser subido a un repositorio en GitHub.
+   - El repositorio debe contener el archivo `README.md` con una descripción clara y precisa del proyecto.
+   - El repositorio debe estar estructurado de manera que facilite la revisión y comprensión del trabajo.
+   - Asegúrate de documentar adecuadamente el proyecto, utilizando **commits** frecuentes y significativos.
+
+## Evaluación
+
+La evaluación de los proyectos se basará en los siguientes criterios:
+
+- La **calidad y claridad** del código.
+- La **profundidad y coherencia** del análisis realizado.
+- La **correcta interpretación** de los resultados obtenidos.
+- La **calidad y precisión** del informe `README.md` en el repositorio de GitHub.
+- El **uso adecuado** de herramientas de gestión de proyectos (GitHub Projects).
+- La **innovación y aplicabilidad** de los insights generados, especialmente en términos de valor para la organización.
+
+**¡Esperamos tus valiosas contribuciones y te deseamos mucho éxito en el proyecto final!** -->
 
