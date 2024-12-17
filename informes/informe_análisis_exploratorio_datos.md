@@ -192,7 +192,7 @@ El siguiente análisis toma en cuenta los principales **días festivos** que ocu
 
 ---
 
-Este análisis permite identificar los posibles efectos estacionales en la elasticidad de la demanda, correlacionando los días festivos con las variaciones en el comportamiento de los consumidores.
+Este análisis permite identificar los posibles efectos estacionales en la elasticidad de la demanda, correlacionando los días festivos con las variaciones en el comportamiento de los consumidores. A continuación se presenta algunos análisis de la elasticidad por año considerando los días festivos.
 
 **Elasticidad de la demanda respecto al precio por semana para aguacates en California (2022)**
 
@@ -206,3 +206,23 @@ Observaciones clave:
 - Las variaciones son más pronunciadas para los aguacates convencionales, reflejando una demanda más volátil frente a cambios en el precio en comparación con los orgánicos.
 
 En resumen, la elasticidad de los convencionales es más sensible y volátil en fechas clave como Pascua, mientras que los orgánicos mantienen una elasticidad más controlada.
+
+**Elasticidad de la demanda respecto al precio por semana para aguacates en California (2023)**
+
+![alt text](../imagenes/elasticidad_demanda_semana_california_2023.png)
+
+La gráfica muestra la elasticidad de la demanda respecto al precio para aguacates (tanto orgánicos como convencionales) en California durante 2023, representada por semanas.
+
+Observaciones clave:
+1. Picos de Elasticidad:
+    - Se observan grandes picos positivos en la elasticidad durante ciertas semanas (por ejemplo, Día de la Independencia y Acción de Gracias), especialmente en los aguacates orgánicos. Esto indica una alta sensibilidad a cambios en los precios durante festivos o eventos especiales.
+    - Los aguacates convencionales también muestran picos, pero son más pequeños y menos frecuentes en comparación con los orgánicos.
+2. Elasticidad Negativa:
+    - Existen períodos de elasticidad negativa, principalmente para los aguacates orgánicos (por ejemplo, cerca del Cinco de Mayo y Acción de Gracias), lo que sugiere que la demanda disminuyó a pesar de que los precios bajaron.
+3. Tendencia General:
+    - Los aguacates orgánicos muestran una mayor volatilidad en su elasticidad a lo largo del año, lo que refleja una mayor sensibilidad de los consumidores a los cambios de precio.
+    - Los aguacates convencionales muestran una elasticidad más estable, con variaciones menores durante las semanas.
+
+Interpretación:
+
+La demanda de aguacates orgánicos es más elástica, especialmente durante festivos y eventos importantes, lo que sugiere que los consumidores son más sensibles a los cambios de precio en esos períodos. En contraste, los aguacates convencionales tienen una demanda más estable y menos afectada por las fluctuaciones de precio.
