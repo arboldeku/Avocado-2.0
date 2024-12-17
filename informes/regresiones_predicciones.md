@@ -34,7 +34,7 @@ Se tuvo que arreglar antes de modelar los modelos de regresión los outliers en 
 
 ### Modelos de Regresión Lineal Múltiple:
 
-![Resultados MCO](../graficos_imagenes/Resultados%20MCO.png)
+![Resultados MCO](../graficos_imagenes/Resultados%20MCO.PNG)
 
 Vemos que el ajuste del modelo és moderado ya que el Precio del Aguacate sólo viene explicado en un 47,3% por las variables exógenas. A nivel de coeficientes, la variable que más explican la variable del precio son la del tamaño del aguacate. Luego tan solo tenemos la variable de elasticidad que no és estadísticamente significativa ya que su P-Valor es mayor a 0.05. 
 
